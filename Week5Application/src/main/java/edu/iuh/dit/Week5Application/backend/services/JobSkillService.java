@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 public class JobSkillService {
 
     @Autowired
-
     private JobSkillRepository jobSkillRepository;
 
     public JobSkill saveJobSkill(JobSkill jobSkill) {
