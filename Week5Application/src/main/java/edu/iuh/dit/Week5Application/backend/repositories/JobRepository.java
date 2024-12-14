@@ -20,10 +20,15 @@ public interface JobRepository extends JpaRepository<Job, Long> {
 
     // Liệt kê danh sách công việc cùng với danh sách kỹ năng của công việc đó
     // Chỉ những công việc có ít nhất 1 kỹ năng
-    @Query("SELECT j FROM Job j JOIN FETCH j.jobSkills js JOIN FETCH js.skill s")
+    @Query("SELECT j FROM Job j " +
+            "JOIN FETCH j.jobSkills js " +
+            "JOIN FETCH js.skill s")
     List<Job> findAllJobsWithSkills();
 
     //    Liệt kê danh sách công việc cùng với danh sách kỹ năng của công việc đó theo tên công việc
-    @Query("SELECT j FROM Job j JOIN FETCH j.jobSkills js JOIN FETCH js.skill s WHERE lower(j.jobName) LIKE lower(CONCAT('%', :jobName, '%'))")
-    List<Job> findAllJobsWithSkillsByName(String jobName);
+    @Query("SELECT j FROM Job j " +
+            "JOIN FETCH j.jobSkills js " +
+            "JOIN FETCH js.skill s " +
+            "WHERE lower(j.jobName) LIKE lower(CONCAT('%', :jobName, '%'))")
+    List<Job> findAllJobsWithSkillsByName(@Param("jobName") String jobName);
 }

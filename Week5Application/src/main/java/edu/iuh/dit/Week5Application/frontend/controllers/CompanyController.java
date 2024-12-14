@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
+@RequestMapping("/company")
 public class CompanyController {
     @Autowired
     private CompanyService companyService;

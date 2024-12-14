@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/user/")
+@RequestMapping("/user")
 public class CandidateController {
     @Autowired
     private CandidateRepository candidateRepository;
